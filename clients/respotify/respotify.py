@@ -116,7 +116,7 @@ def command_artist(*args):
 	set_current_playlist(album)
 
 def command_play(*args):
-	if args[0][0] == "":
+	if len(args) <= 0 or args[0] == "" or args[0][0] == "":
 		return
 
 	try:

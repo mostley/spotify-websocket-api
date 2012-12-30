@@ -169,14 +169,13 @@ class SpotifyAPI():
 			"secret": secret,
 		}
 		resp = session.post("https://"+self.auth_server+"/xhr/json/auth.php", data=login_payload, headers = headers)
-		resp_json = resp.json()
 
-		if resp_json["status"] != "OK":
+		if resp.json["status"] != "OK":
 			Logging.error("There was a problem authenticating, authentication failed")
 			self.do_login_callback(False)
 			return False
 
-		self.settings = resp.json()["config"]
+		self.settings = resp.json["config"]
 
 	def auth_from_json(self, json):
 		self.settings = json
